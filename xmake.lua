@@ -1,8 +1,23 @@
 add_rules("mode.debug", "mode.release")
+add_includedirs("./include")
+-- add_toolchains("mingw", {sdk = "D:/_CODE/_ENVIRONMENT/mingw64"})\
+-- 用这个命令来添加 mode.release 的 toolchain 和 debugger：
+-- ($) xmake f -p windows -a x86_64 -m release \
+-- --toolchain=mingw --sdk=D:\_CODE\_ENVIRONMENT\mingw64 -c \
+-- --debugger=D:\_CODE\_ENVIRONMENT\mingw64\bin\gdb
+
+-- 编译器 SDK Libs的路径，记得改掉，换成自己的
+lib_dir = "D:\\_CODE\\_ENVIRONMENT\\mingw64\\x86_64-w64-mingw32\\lib\\"
 
 target("docvm4cpp")
     set_kind("binary")
     add_files("src/*.cpp")
+
+    add_links("./include/GLFW/libglfw3.a")
+    add_links(lib_dir .. "libopengl32.a")
+    add_links(lib_dir .. "libuser32.a")
+    add_links(lib_dir .. "libgdi32.a")
+    add_links(lib_dir .. "libshell32.a")
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
