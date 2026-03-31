@@ -1,6 +1,6 @@
 [
 {
   "directory": "d:\\_CODE\\Projects\\docvm4cpp",
-  "arguments": ["D:\\_CODE\\_ENVIRONMENT\\mingw64\\bin\\x86_64-w64-mingw32-g++.exe", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-Iinclude", "-fexceptions", "-DNDEBUG", "-o", "build\\.objs\\docvm4cpp\\windows\\x86_64\\release\\src\\glfw3_example.cpp.obj", "src\\glfw3_example.cpp"],
-  "file": "src\\glfw3_example.cpp"
+  "arguments": ["D:\\_CODE\\_ENVIRONMENT\\mingw64\\bin\\x86_64-w64-mingw32-g++.exe", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-Iinclude", "-fexceptions", "-DNDEBUG", "-o", "build\\.objs\\docvm4cpp\\windows\\x86_64\\release\\src\\render_example.cpp.obj", "src\\render_example.cpp"],
+  "file": "src\\render_example.cpp"
 }]

@@ -13,7 +13,7 @@ target("docvm4cpp")
     set_kind("binary")
     add_files("src/*.cpp")
 
-    add_links("./include/GLFW/libglfw3.a")
+    add_links("./lib/libglfw3.a")
     add_links(lib_dir .. "libopengl32.a")
     add_links(lib_dir .. "libuser32.a")
     add_links(lib_dir .. "libgdi32.a")
