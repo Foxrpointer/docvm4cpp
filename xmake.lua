@@ -11,13 +11,15 @@ lib_dir = "D:\\_CODE\\_ENVIRONMENT\\mingw64\\x86_64-w64-mingw32\\lib\\"
 
 target("docvm4cpp")
     set_kind("binary")
-    add_files("src/*.cpp")
+    add_files("src/*.cpp", "src/*.c")
 
     add_links("./lib/libglfw3.a")
     add_links(lib_dir .. "libopengl32.a")
     add_links(lib_dir .. "libuser32.a")
     add_links(lib_dir .. "libgdi32.a")
     add_links(lib_dir .. "libshell32.a")
+
+    set_symbols("debug")    -- 启用调试符号
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
