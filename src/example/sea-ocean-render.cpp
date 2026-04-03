@@ -1,7 +1,7 @@
 // 渲染函数
 #include "sea-ocean-render.hpp"
 
-void render_func()
+void render_prepare()
 {
     /// 顶点输入
     /// 逆时针定义顶点
@@ -16,7 +16,7 @@ void render_func()
     /// 生成 VBO 对象 Vertex Buffer Object
     /// n是数量，buffers是缓冲区的句柄
     /// VBO是句柄，不是指针
-    unsigned int VBO;
+    GLuint VBO;
     glGenBuffers(1, &VBO);
 
     /// 绑定VBO到当前活跃的ARRAY_BUFFER
@@ -38,5 +38,9 @@ void render_func()
     );
     glEnableVertexAttribArray(0);  // 必须启用！默认禁用
     /// 顶点着色器
+}
 
+void render_func()
+{
+    
 }
