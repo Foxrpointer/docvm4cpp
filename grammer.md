@@ -19,18 +19,18 @@ int main()
     if (!ctrl) return -1;
 
     // 导出对象
-    docvm::Viewport& view;
-    mechine.export_viewport(&view);
+    docvm::Viewport* view;
+    mechine.export_viewport(view);
 
     // 设置属性
     view
-    .setViewportSize(800, 600);
+    ->setViewportSize(800, 600);
 
     // canva
-    view.canva
-    .button(100, 100)
-    .text("你好")
-    .save();
+    view->canva
+    ->button(100, 100)
+    ->text("你好")
+    ->save();
 
     mechine.init(); // 卡在这里
     mechine.terminate();
