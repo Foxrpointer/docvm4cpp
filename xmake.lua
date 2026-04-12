@@ -12,22 +12,24 @@ add_includedirs("./include")
 
 -- docvm4cpp.a
 target("docvm-static")
+    set_default(false)
     set_kind("static")
-    set_languages("c++17")
-    add_files("./lib/src/*.cpp")
+    set_languages("c++20")
+    add_files("./lib/libdocvm/*.cpp")
 
 -- docvm4cpp.so .dll
 target("docvm-shared")
+    set_default(false)
     set_kind("shared")
-    set_languages("c++17")
-    add_files("./lib/src/*.cpp")
+    set_languages("c++20")
+    add_files("./lib/libdocvm/*.cpp")
 
 -- example.exe with static
 target("example-with-static")
     set_kind("binary")
     add_files("src/*.cpp", "src/*.c")
 
-    -- add_deps("docvm-static")
+    add_deps("docvm-static")
 
     add_links("./lib/libglfw3.a")
     add_links(lib_dir .. "libopengl32.a")
