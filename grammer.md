@@ -4,7 +4,7 @@
 ```c++
 #include "docvm.h"
 
-void docvm4u
+void docvm4u()
 {
     
 }
