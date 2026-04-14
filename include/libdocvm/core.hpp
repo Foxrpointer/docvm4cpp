@@ -1,11 +1,8 @@
-// docvm lib 头文件
-
 /*!
- * @file  docvm4u.hpp
- * @brief docvm 的静态库类与函数声明头文件
+ * @file  core.hpp
+ * @brief 管理核心的类
  * @author Kyuujuu Kitsuneduka <Foxrpointer>
  * @date 2026-4-14
- * @version 0.0.1
  */
 
 /*! 
@@ -22,22 +19,23 @@
 
 #pragma once
 
-/// @brief docvm 命名空间
 namespace docvm
 {
-    // core 类
+    /**
+     * @brief OpenGL Example 实例
+     * 
+     * 可以生成一个基本的 OpenGL 窗口
+     * 并且里面有一个橙色的正方形
+     */
+    void gl_example();
+
+    
     class Core
     {
+        private:
+        
+
         public:
         Core();
-
-        /**
-         * @brief OpenGL Example 实例
-         * 
-         * 可以生成一个基本的 OpenGL 窗口
-         * 并且里面有一个橙色的正方形
-         */
-        void gl_example();
     };
 }
-

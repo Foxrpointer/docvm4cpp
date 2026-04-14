@@ -7,22 +7,25 @@ add_rules("mode.debug", "mode.release")
 
 -- 编译器 SDK Libs的路径，记得改掉，换成自己的
 lib_dir = "D:\\_CODE\\_ENVIRONMENT\\mingw64\\x86_64-w64-mingw32\\lib\\"
+libdocvm_static = "D:\\_CODE\\Projects\\docvm4cpp\\build\\windows\\x86_64\\release\\docvm-static.lib"
 
 add_includedirs("./include")
 
 -- docvm4cpp.a
 target("docvm-static")
     set_default(false)
+    add_includedirs("./include/libdocvm")
     set_kind("static")
     set_languages("c++20")
-    add_files("./lib/libdocvm/*.cpp")
+    add_files("./src/libdocvm/*.cpp", "./src/libdocvm/*.c")
 
 -- docvm4cpp.so .dll
 target("docvm-shared")
     set_default(false)
+    add_includedirs("./include/libdocvm")
     set_kind("shared")
     set_languages("c++20")
-    add_files("./lib/libdocvm/*.cpp")
+    add_files("./src/libdocvm/*.cpp", "./src/libdocvm/*.c")
 
 -- example.exe with static
 target("example-with-static")
@@ -30,6 +33,7 @@ target("example-with-static")
     add_files("src/*.cpp", "src/*.c")
 
     add_deps("docvm-static")
+    add_links(libdocvm_static) -- 链接 libdocvm
 
     add_links("./lib/libglfw3.a")
     add_links(lib_dir .. "libopengl32.a")

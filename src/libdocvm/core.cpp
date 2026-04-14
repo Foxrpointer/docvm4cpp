@@ -3,6 +3,14 @@
 #include <iostream>
 #include "core.hpp"
 
+
+#include "opengl/gl_example.hpp"
+// gl_example
+void docvm::gl_example()
+{
+    example_main();
+}
+
 // docvm4u
 extern "C" void docvm4u() __attribute__((weak));
 
