@@ -6,7 +6,8 @@
  */
 
 /*! 
- * @defgroup docvm4u 入口函数
+ * extern "C" void docvm4u() __attribute__((weak));
+ * 
  * @brief 用户可选的初始化函数
  * @param core 初始化好的 docvm::Core 的引用
  *
@@ -29,7 +30,7 @@ namespace docvm
      */
     void gl_example();
 
-    
+
     class Core
     {
         private:

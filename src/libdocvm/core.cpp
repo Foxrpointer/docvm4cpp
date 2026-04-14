@@ -15,6 +15,11 @@ void docvm::gl_example()
 extern "C" void docvm4u() __attribute__((weak));
 
 // 如果有 docvm4u 函数
+/**
+ * @todo 新建一个线程，用来运行docvm渲染线程
+ * @todo 初始化一个 core，然后将core的引用传入docvm4u
+ * 
+ */
 [[gnu::constructor]] void run_user_init_if_exists() {
     if ((void*)docvm4u != nullptr) {
         std::cout << "Library: Found user-defined initialization function, running it..." << std::endl;
