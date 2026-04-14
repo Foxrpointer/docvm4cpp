@@ -10,5 +10,6 @@ namespace docvm
 
         public:
         Core();
+        void gl_example();
     };
 }

@@ -30,6 +30,14 @@ namespace docvm
     {
         public:
         Core();
+
+        /**
+         * @brief OpenGL Example 实例
+         * 
+         * 可以生成一个基本的 OpenGL 窗口
+         * 并且里面有一个橙色的正方形
+         */
+        void gl_example();
     };
 }
 
