@@ -5,7 +5,7 @@
 #include "gl.hpp"
 
 // OpenGL类 的构造函数
-docvm::OpenGL::OpenGL()
+docvm::OpenGL::OpenGL(docvm::OpenGL_initializitonStruct s)
 {
-    
+    this->s = s;
 }
