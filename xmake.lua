@@ -1,41 +1,40 @@
 add_rules("mode.debug", "mode.release")
--- add_toolchains("mingw", {sdk = "D:/_CODE/_ENVIRONMENT/mingw64"})\
+-- add_toolchains("mingw", {sdk = "D:/_CODE/_ENVIRONMENT/mingw64"})
 -- 用这个命令来添加 mode.release 的 toolchain 和 debugger：
--- ($) xmake f -p windows -a x86_64 -m release \
--- --toolchain=mingw --sdk=D:\_CODE\_ENVIRONMENT\mingw64 -c \
+-- ($) xmake f -p windows -a x86_64 -m release
+-- --toolchain=mingw --sdk=D:\_CODE\_ENVIRONMENT\mingw64 -c
 -- --debugger=D:\_CODE\_ENVIRONMENT\mingw64\bin\gdb
 
 -- 编译器 SDK Libs的路径，记得改掉，换成自己的
 lib_dir = "D:\\_CODE\\_ENVIRONMENT\\mingw64\\x86_64-w64-mingw32\\lib\\"
-libdocvm_static = "D:\\_CODE\\Projects\\docvm4cpp\\build\\windows\\x86_64\\release\\docvm-static.lib"
 
-add_includedirs("./include")
+add_includedirs("include/docvm4cpp")
 
 -- docvm4cpp.a
 target("docvm-static")
     set_default(false)
-    add_includedirs("./include/libdocvm")
+    add_includedirs("include/docvm4cpp/libdocvm")
     set_kind("static")
     set_languages("c++20")
-    add_files("./src/libdocvm/*.cpp", "./src/libdocvm/*.c")
+    add_files("include/docvm4cpp/libdocvm/*.cpp", "include/docvm4cpp/libdocvm/*.c")
 
 -- docvm4cpp.so .dll
 target("docvm-shared")
     set_default(false)
-    add_includedirs("./include/libdocvm")
+    add_includedirs("include/docvm4cpp/libdocvm")
     set_kind("shared")
     set_languages("c++20")
-    add_files("./src/libdocvm/*.cpp", "./src/libdocvm/*.c")
+    add_files("include/docvm4cpp/libdocvm/*.cpp", "include/docvm4cpp/libdocvm/*.c")
 
 -- example.exe with static
 target("example-with-static")
     set_kind("binary")
-    add_files("src/*.cpp", "src/*.c")
+    add_files("examples/example.cpp")
 
     add_deps("docvm-static")
-    add_links(libdocvm_static) -- 链接 libdocvm
+    add_links("D:/_CODE/Projects/docvm4cpp/build/windows/x86_64/release/docvm-static.lib")
 
-    add_links("./lib/libglfw3.a")
+    add_links("lib/libglfw3.a")
     add_links(lib_dir .. "libopengl32.a")
     add_links(lib_dir .. "libuser32.a")
     add_links(lib_dir .. "libgdi32.a")
